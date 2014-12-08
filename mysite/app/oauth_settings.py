@@ -91,15 +91,7 @@ def form_params(oauth_web):
 
 		return d
 
-github = settings(client_id='293f8bea769884dc7ee7', client_secret='18e45fc4229d7f22a6fa580e96743296ab26f5d5',
-	auth_url='https://github.com/login/oauth/authorize', token_url='https://github.com/login/oauth/access_token',
-	getinfo_url='https://api.github.com/user',displayInfo=['avatar_url','created_at','html_url','email'])
 
-sina = settings(client_id='238900392', client_secret='f5b292fa7eb3925ec999ff5024d45825', 
-	auth_url='https://api.weibo.com/oauth2/authorize', token_url='https://api.weibo.com/oauth2/access_token',
-	redirect_uri='http://127.0.0.1:5000/app/callback?oauth_web=sina', getinfo_url='https://api.weibo.com/2/users/show.json',
-	displayInfo=['screen_name','name','location','description']
-	)
 
 google = settings()
 	
