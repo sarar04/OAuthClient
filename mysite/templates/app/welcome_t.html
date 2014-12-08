@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block title %} {{userinfo.username}} {% endblock %}
+
+{% block content %}
+{% if userinfo %}
+
+	<div> hello <b>{{userinfo.username}} </b></div>
+	
+	{% block github %}
+		<div style='padding-top:20px'> you can choose the Authorization you like </div>
+		<div style='padding-top:50px'><img src="{% static 'img/github.png' %}" style='width:40px' /><a href="/app/get_oauth_code?oauth_web=github"> github authorization </a></div>
+		<div style='padding-top:10px'><img src="{% static 'img/sina.jpg' %}" style='width:40px' /><a href="/app/get_oauth_code?oauth_web=sina"> sina authorization </a></div>
+		<!-- <div><a href="/app/get_oauth_code?oauth_web=google"> google authorization </a></div> -->
+	{% endblock %}
+
+{% else %}
+
+	{% block error %} {{reason}} {% endblock %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "app/index.html" %}
+
+{% block title %} {{userinfo.username}} {% endblock %}
+
+{% block content %}
+{% if userinfo %}
+
+	<div> welcome {{userinfo.username}} </div>
+	
+	{% block userinfo %}
+		userinfo:
+		<ul> 
+			  	<li> Birthday:{{userinfo.birthday}} </li>
+			  	<li> Hometown:{{userinfo.hometown}} </li>
+			  	<li> Description: {{userinfo.describ}} </li>
+		</ul>
+	{% endblock %}
+	
+	{% block github %}<a href='/app/github'>watch the github info </a>{% endblock %}
+
+{% else %}
+
+	{% block error %} sorry, {{reason}} {% endblock %}
+{% endif %}
+
+{% endblock %}

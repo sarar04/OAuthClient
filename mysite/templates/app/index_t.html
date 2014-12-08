@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+<!-- <link rel="stylesheet" type="text/css" href = "style/style.css" /> -->
+{% block title %} index {% endblock %}
+<script type="text/javascript" src="static/js/function.js"></script>
+
+{% block content %} 
+
+<div style='padding-left:155px'> <b>Django administration </b></div> 
+
+<form action="/app/mylogin/" method="POST">{% csrf_token %}
+    {% for field in form %}
+         <div style='padding-left:155px; padding-top:20px'>{{ field.label_tag }}{{ field }} </div>
+         {{ field.errors }}
+    
+    {% endfor %}
+    <div align=center style='padding-top:30px;'> <input type="submit" value="Login" style="background-color:#0066FF" onclick="r();" /> <input type="reset" style="background-color:#0066FF" value="Cancle"/></div>
+  </form>
+
+{% endblock content %}
+

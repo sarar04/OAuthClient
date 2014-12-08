@@ -1,0 +1,19 @@
+{% extends "static/display_info.html" %}
+
+{% block title %} github authorization test {% endblock title %}
+
+{% if info %}
+	{% block welcome %} congratulation {% endblock welcome %}
+
+	{% block result %}
+		<ul> 
+			<li>用户名：{{ info.login }} </li>
+			<li>头像 ：<img src={{info.avatar_url}} style="width:30px"> </li>
+			<li>注册时间：{{ info.created_at }} </li>
+			<li>主页: {{ info.html_url }} </a> </li>
+		<ul>
+		
+	{% endblock result %}
+{% else %}
+	<p> Oh,no! get no infomation</p>
+{% endif %}

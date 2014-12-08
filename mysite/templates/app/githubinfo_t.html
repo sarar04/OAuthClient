@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block title %} github {% endblock %}
+
+{% block content %}
+
+	<div>Oauthorization success</div>
+
+	<div style='padding-top:30px'>choose the infomation you are intersted in </div>
+	<form action="/app/get_info/" method="POST">{% csrf_token %}
+	    {% for field in form %}
+	         <div>{{ field.label_tag }}{{ field }} </div>
+	         {{ field.errors }}
+	    
+	    {% endfor %}
+	    <div align=center style='padding-top:20px'> <input type="submit" value="确定" style="background-color:#0066FF" /> <input type="reset" style="background-color:#0066FF" value="取消"/></div>
+    </form>
+
+{% endblock %}

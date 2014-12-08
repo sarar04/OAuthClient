@@ -1,0 +1,25 @@
+{% extends "app/index.html" %}
+
+{% block title %} github {% endblock %}
+
+{% block content %}
+{% if username %}
+
+	<div>welcome {{username}}</div>
+
+	<div style='padding-top:30px'>choose the infomation you intersted in </div>
+	<form action="/app/get_info/" method="POST">{% csrf_token %}
+	    {% for field in form %}
+	         <div>{{ field.label_tag }}{{ field }} </div>
+	         {{ field.errors }}
+	    
+	    {% endfor %}
+	    <div align=center style='padding-left:-50px;'> <input type="submit" value="确定" style="background-color:#0066FF" onclick="r();" /> <input type="reset" style="background-color:#0066FF" value="取消"/></div>
+    </form>
+{% else %}
+
+sorry, {{reason}}
+
+{% endif %}
+
+{% endblock %}
